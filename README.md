@@ -23,7 +23,16 @@ func TestAccountAdd(t *testing.T) {
   trialLimit = trialLimitConst
 }
 
+// account_bench_test.go
 
+func BenchmarkAccountTotal(b *testing.B) {
+  b.StopTimer()
+  a := newAccount(9999)
+  b.StartTimer()
+  for i := 0; i < b.N; i++ {
+    a.total()
+  }
+}
 
 ```
 
